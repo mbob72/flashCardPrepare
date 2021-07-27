@@ -1,8 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
-import { dd } from "./table"
+import {getDD} from "./table"
+import {useState} from "react";
+
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 const fonts = {
     Times: {
@@ -20,20 +21,25 @@ const fonts = {
 }
 
 function App() {
+    const [startNum, changeStartNum] = useState('')
+    function onSubmit(e) {
+        e.preventDefault()
+        console.log('start::', startNum)
+        let win = window.open('', '_blank');
+        getDD(startNum).then(dd => {
+            pdfMake.createPdf(dd, null, fonts).open({}, win);
+        })
+    }
 
-  function click() {
-      console.log('start::')
-    let win = window.open('', '_blank');
-    pdfMake.createPdf(dd, null, fonts).open({}, win);
-  }
-
-  return (
-    <div className="App">
-      <header className="App-header" onClick={click}>
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <form onSubmit={onSubmit} >
+                <header className="App-header" >
+                    <input value={startNum} onChange={e => changeStartNum(e.target.value)} />
+                </header>
+            </form>
+        </div>
+    );
 }
 
 export default App;
