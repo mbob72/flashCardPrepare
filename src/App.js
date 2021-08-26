@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { Search } from './search/search';
+import Search from './search';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 const fonts = {
