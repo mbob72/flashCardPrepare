@@ -1,26 +1,26 @@
-import "./App.css";
-import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
-import { getDD } from "./table";
-import { useState } from "react";
+import './App.css';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+import { getDD } from './table';
+import { useState } from 'react';
 
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Search } from "./search/search";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Search } from './search/search';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 const fonts = {
   Times: {
-    normal: "https://localhost:3000/lsansuni.ttf",
-    bold: "https://localhost:3000/lsansuni.ttf",
-    italics: "https://localhost:3000/lsansuni.ttf",
-    bolditalics: "https://localhost:3000/lsansuni.ttf",
+    normal: 'https://localhost:3000/lsansuni.ttf',
+    bold: 'https://localhost:3000/lsansuni.ttf',
+    italics: 'https://localhost:3000/lsansuni.ttf',
+    bolditalics: 'https://localhost:3000/lsansuni.ttf',
   },
   Roboto: {
-    normal: "https://localhost:3000/7454.ttf",
-    bold: "https://localhost:3000/7454.ttf",
-    italics: "https://localhost:3000/7454.ttf",
-    bolditalics: "https://localhost:3000/7454.ttf",
+    normal: 'https://localhost:3000/7454.ttf',
+    bold: 'https://localhost:3000/7454.ttf',
+    italics: 'https://localhost:3000/7454.ttf',
+    bolditalics: 'https://localhost:3000/7454.ttf',
   },
 };
 
