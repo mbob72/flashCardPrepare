@@ -52,7 +52,6 @@ const DictNum = () => {
   const [startNum, changeStartNum] = useState("");
   function onSubmit(e) {
     e.preventDefault();
-    console.log("start::", startNum);
     let win = window.open("", "_blank");
     getDD(startNum).then((dd) => {
       pdfMake.createPdf(dd, null, fonts).open({}, win);
